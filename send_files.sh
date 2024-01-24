@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source configs/config.sh
+source ./configs/config.sh
 
 DIRECTORIES=("image")
 
