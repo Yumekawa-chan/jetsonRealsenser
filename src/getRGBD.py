@@ -38,9 +38,11 @@ def capture_images():
 
         spatial = rs.spatial_filter()
         temporal = rs.temporal_filter()
+        disparity_filter = rs.disparity_transform()
 
         depth_frame = spatial.process(depth_frame)
         depth_frame = temporal.process(depth_frame)
+        depth_frame = disparity_filter.process(depth_frame)
 
         color_frame = aligned_frames.get_color_frame()
 
