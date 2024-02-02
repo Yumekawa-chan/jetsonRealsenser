@@ -1,10 +1,8 @@
 #!/bin/bash
-python3 src/inner_para.py
-python3 src/getRGBD.py
-
 source ./configs/config.sh
-
 DIRECTORY="./para"
+
+python3 src/inner_para.py
 
 find "$DIRECTORY" -name "*.npy" -exec sh -c '
     file={};
@@ -12,3 +10,4 @@ find "$DIRECTORY" -name "*.npy" -exec sh -c '
     sshpass -p "$REMOTE_PASS" scp "$file" "$REMOTE_USER@$REMOTE_HOST:$REMOTE_BASE_DIR/matrix/$(basename "$file")"
 ' \;
 
+python3 src/getRGBD.py
